@@ -18,14 +18,21 @@ from django.urls import path
 
 #將hello的view import
 import hello.views as hviews
+import studentsapp.views as sviews
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     #網址路徑,對應執行函式
+    
+    #hview
     path("", hviews.sayhello),
     path("dice/", hviews.dice),
     path("tripledice/", hviews.tripledice),
     path("helloplus/", hviews.sayhelloplus),
     path("hello2/<str:username>", hviews.sayhello2),
     path("hello3/<str:username>", hviews.sayhello3),
+    
+    #sview
+    path("showone", sviews.showone),
+    path("showall", sviews.showall),
 ]
