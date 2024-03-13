@@ -25,12 +25,12 @@ def dice(request):
     return render(request,"dice.html",{"no":no})
 
 def tripledice(request):
+    
     no1 = random.randint(1,6)
     no2 = random.randint(1,6)
     no3 = random.randint(1,6)
-    while(no1 == no2):
-        no2 = random.randint(1,6)
-    while(no1 == no3 or no2 == no3):
-        no3 = random.randint(1,6)
-    
-    return render(request,"tripledice.html",{"no1":no1,"no2":no2,"no3":no3})
+    no4 = random.randint(1,6)
+    no5 = random.randint(1,6)
+    no = {"no1":no1,"no2":no2,"no3":no3,"no4":no4,"no5":no5}
+        
+    return render(request,"tripledice.html",locals())
