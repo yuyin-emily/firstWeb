@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>第三個模板 - 傳參數，加static</title>
+        {% load static %}
+        <link href = "{% static 'css/style.css' %}" rel= "stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id = "home">
+            <img src= "{% static 'images/ball.png' %}" alt="Ball" width=32 height=32>
+        </div>
+        <span class = "info">Hello {{username}}</span>
+        <h1>Time {{now}}</h1>
+    </body>
+
+</html>
