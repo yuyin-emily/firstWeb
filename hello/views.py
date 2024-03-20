@@ -22,7 +22,7 @@ def sayhello3(request,username):
 
 def dice(request):
     no = random.randint(1,6)
-    return render(request,"dice.html",{"no":no})
+    return render(request,"dice/dice.html",{"no":no})
 
 def tripledice(request):
     
@@ -33,4 +33,4 @@ def tripledice(request):
     no5 = random.randint(1,6)
     no = {"no1":no1,"no2":no2,"no3":no3,"no4":no4,"no5":no5}
         
-    return render(request,"tripledice.html",locals())
+    return render(request,"dice/tripledice.html",locals())

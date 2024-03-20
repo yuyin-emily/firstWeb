@@ -4,11 +4,12 @@
 <!--顯示標題區塊-->
 {% block title %}
     <meta charset = "utf-8">
-    <title>第二個模板 - 傳參數</title>
+    <title>擲三顆骰子</title>
 {% endblock %}
 
 <!--顯示內容區塊-->
 {% block content %}
-    <h1>Hello {{username}}</h1>
-    <h1>Time {{now}}</h1>
+    <h1>點數：{{no.no1}}</h1>
+    <h1>點數：{{no.no2}}</h1>
+    <h1>點數：{{no.no3}}</h1>
 {% endblock %}

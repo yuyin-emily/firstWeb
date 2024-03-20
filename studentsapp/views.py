@@ -27,3 +27,10 @@ def students(request):
         errormessage = "讀取錯誤"
         
     return render(request,"show/students.html",locals())
+
+def post(request):
+    if request.method == "POST":
+        message = request.POST["username"]
+    else:
+        message = "資料未傳送"
+    return render(request,"show/post.html",locals())
