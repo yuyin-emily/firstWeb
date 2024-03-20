@@ -37,4 +37,5 @@ urlpatterns = [
     path("showall", sviews.showall),
     path("students", sviews.students),
     path("post", sviews.post),
+    path("post1", sviews.post1),
 ]

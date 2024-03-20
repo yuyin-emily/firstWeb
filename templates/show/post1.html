@@ -1,0 +1,47 @@
+<!--繼承基礎模板-->
+{%extends "../base/base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+    <title>表單傳送練習</title>
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+    <form  action="/post1" method="POST" name="form1">
+        {% csrf_token %}
+        <table border="1" cellspacing = "1" cellpadding = "4" align="center">
+            <tr>
+                <th>姓名：</th>
+                <td><input type="text" name="cName" size=50/></td>
+            </tr>
+            <tr>
+                <th>性別：</th>
+                <td>
+                    <input type="radio" id="cSex1" name="cSex" value="M" checked="checked"/>
+                    <input type="radio" id="cSex2" name="cSex" value="F"/>
+                </td>
+            </tr>
+            <tr>
+                <th>生日：</th>
+                <td><input type="text" name="cBirthday" size=50/></td>
+            </tr>
+            <tr>
+                <th>Email：</th>
+                <td><input type="text" name="cEmail" size=50 placeholder="xxx@xxx.xxx"/></td>
+            </tr>
+            <tr>
+                <th>電話：</th>
+                <td><input type="text" name="cPhone" size=50/></td>
+            </tr>
+            <tr>
+                <th>地址：</th>
+                <td><input type="text" name="cAddr" size=50/></td>
+            </tr>
+            <tr align="center">
+                <th colspan="2" align="center">
+                    <input type="submit" id="button" name="button" value="submit">
+                    <input type="reset" id="button1" name="button1" value="reset">
+        </table>
+    </form> 
+{% endblock %}

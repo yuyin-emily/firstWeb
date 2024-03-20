@@ -1,5 +1,4 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from studentsapp.models import student
 
 # Create your views here.
@@ -34,3 +33,23 @@ def post(request):
     else:
         message = "資料未傳送"
     return render(request,"show/post.html",locals())
+
+def post1(request):
+    if request.method == "POST":
+        cName = request.POST["cName"]
+        cSex = request.POST["cSex"]
+        cBirthday = request.POST["cBirthday"]
+        cEmail = request.POST["cEmail"]
+        cPhone = request.POST["cPhone"]
+        cAddr = request.POST["cAddr"]
+        unit = student.objects.create(cName=cName,
+                                      cSex=cSex,
+                                      cBirthday=cBirthday,
+                                      cEmail=cEmail,
+                                      cPhone=cPhone,
+                                      cAddr=cAddr)
+        unit.save()
+        return redirect("/students")
+    else:
+        message = "請輸入資料(資料未作驗證)"
+    return render(request, "show/post1.html", locals())
