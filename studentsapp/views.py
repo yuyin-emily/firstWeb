@@ -10,7 +10,7 @@ def showone(request):
     except:
         errormessage = "讀取錯誤，找不到學生"
         
-    return render(request,"showone.html",locals())
+    return render(request,"show/showone.html",locals())
 
 def showall(request):
     try:
@@ -18,4 +18,12 @@ def showall(request):
     except:
         errormessage = "讀取錯誤"
         
-    return render(request,"showall.html",locals())
+    return render(request,"show/showall.html",locals())
+
+def students(request):
+    try:
+        stds = student.objects.all().order_by("id")
+    except:
+        errormessage = "讀取錯誤"
+        
+    return render(request,"show/students.html",locals())

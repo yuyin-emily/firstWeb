@@ -10,15 +10,15 @@ def sayhello(request):
     return HttpResponse("Hello Django by HttpResponse!")
 
 def sayhelloplus(request):
-    return render(request,"hello.html")
+    return render(request,"hello/hello.html")
 
 def sayhello2(request,username):
     now = datetime.now()
-    return render(request,"hello2.html",locals())
+    return render(request,"hello/hello2.html",locals())
 
 def sayhello3(request,username):
     now = datetime.now()
-    return render(request,"hello3.html",locals())
+    return render(request,"hello/hello3.html",locals())
 
 def dice(request):
     no = random.randint(1,6)

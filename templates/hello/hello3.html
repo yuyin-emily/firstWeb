@@ -1,0 +1,18 @@
+<!--繼承基礎模板-->
+{%extends "../base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+    <meta charset = "utf-8">
+    <title>第三個模板 - 傳參數，加static</title>
+    <link href = "{% static '../css/style.css' %}" rel= "stylesheet" type="text/css" />
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+    <div id = "home">
+        <img src= "{% static 'images/ball.png' %}" alt="Ball" width=32 height=32>
+    </div>
+    <span class = "info">Hello {{username}}</span>
+    <h1>Time {{now}}</h1>
+{% endblock %}

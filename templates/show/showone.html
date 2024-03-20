@@ -1,0 +1,19 @@
+<!--繼承基礎模板-->
+{%extends "../base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+    <title>顯示一筆資料</title>
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+    <h1>顯示某位學生的資料內容 {{ errormessage }}</h1> 
+    編號：{{ std.id }}<br />
+    姓名：{{ std.cName }}<br />
+    性別：{{ std.cSex }}<br />
+    生日：{{ std.cBirthday }}<br />
+    Email：{{ std.cEmail }}<br />
+    電話：{{ std.cPhone }}<br />
+    地址：{{ std.cAddr }}<br />
+{% endblock %}
