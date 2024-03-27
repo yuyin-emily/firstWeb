@@ -1,0 +1,18 @@
+<!--繼承基礎模板-->
+{%extends "../base/base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+    <title>表單傳送練習</title>
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+    <form  action="/delete" method="POST" name="form1">
+        {% csrf_token %}
+        <div>
+            請輸入編號:<input type="text" name="id" />
+            <input type="submit" value="送出資料">
+        </div>
+    </form> 
+{% endblock %}

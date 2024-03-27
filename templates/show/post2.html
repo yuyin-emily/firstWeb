@@ -1,0 +1,47 @@
+<!--繼承基礎模板-->
+{%extends "../base/base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+    <title>新增學生資料表單</title>
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+    <form  action="/post1" method="POST" name="form1">
+        {% csrf_token %}
+        <table border="1" cellspacing = "1" cellpadding = "4" align="center">
+            <tr>
+                <th>姓名：</th>
+                <td>{{postform.cName}}</td>
+            </tr>
+            <tr>
+                <th>性別：</th>
+                <td>
+                    <input type="radio" id="cSex1" name="cSex" value="M" checked="checked"/>
+                    <input type="radio" id="cSex2" name="cSex" value="F"/>
+                </td>
+            </tr>
+            <tr>
+                <th>生日：</th>
+                <td>{{postform.cBirthday}}</td>
+            </tr>
+            <tr>
+                <th>Email：</th>
+                <td>{{postform.cEmail}}</td>
+            </tr>
+            <tr>
+                <th>電話：</th>
+                <td>{{postform.cPhone}}</td>
+            </tr>
+            <tr>
+                <th>地址：</th>
+                <td>{{postform.cAddr}}</td>
+            </tr>
+            <tr align="center">
+                <th colspan="2" align="center">
+                    <input type="submit" id="button" name="button" value="submit">
+                    <input type="reset" id="button1" name="button1" value="reset">
+        </table>
+    </form> 
+{% endblock %}

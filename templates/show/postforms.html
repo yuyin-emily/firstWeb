@@ -1,0 +1,18 @@
+<!--繼承基礎模板-->
+{%extends "../base/base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+    <title>學生資料表單基本驗證</title>
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+    <h2>學生資料表單基本驗證</h2>
+    <form  action="/post1" method="POST" name="form1">
+        {% csrf_token %}
+        <table border="1" cellspacing = "1" cellpadding = "4" align="center">
+            {{postform}}
+        </table>
+    </form> 
+{% endblock %}
