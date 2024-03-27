@@ -43,4 +43,7 @@ urlpatterns = [
     path("post2", sviews.post2),
     
     path("delete", sviews.delete),
+    path("delete/<int:id>/", sviews.delete),
+    path("edit/", sviews.edit),
+    path("edit/<int:id>/<str:mode>", sviews.edit),
 ]

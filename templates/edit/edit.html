@@ -1,0 +1,60 @@
+<!-- 整合post1 & postform -->
+<!-- 繼承基礎樣板 -->
+{% extends "base/base.html" %}
+
+<!-- 顯示標題區塊 -->
+{% block title %}
+    <title>修改學生資料表單</title>
+{% endblock %}
+        
+{% block content %}
+    <!-- 顯示內容區塊 -->
+    <!--  送出去的資料，由哪一個程式接收與處理 -->
+    <form action="/edit/{{unit.id}}/save" method="POST" name="form1">
+        {% csrf_token %}
+        <table border="1" cellspacing="1" cellpadding="4" align="center">
+            <tr>
+                <th>姓名：</th>
+                <td><input type="text" id="cName" value="{{unit.cName}}" name="cName" size="50" maxlength="20" /></td>
+            </tr>
+            <tr>
+                <th>性別：</th>
+                {% if unit.cSex == "M" %}
+                <td>
+                    <input type="radio" id="cSex1" name="cSex" value="M" checked="checked" />男生
+                    <input type="radio" id="cSex2" name="cSex" value="F" />女生
+                </td>
+                {% else %}
+                <td>
+                    <input type="radio" id="cSex1" name="cSex" value="M" />男生
+                    <input type="radio" id="cSex2" name="cSex" value="F" checked="checked" />女生
+                </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>生日：</th>
+                <td><input type="text" id="cBirthday" value="{{unit.cBirthday}}" name="cBirthday" size="50" /></td>
+            </tr>
+            <tr>
+                <th>Email：</th>
+                <td><input type="text" id="cEmail" value="{{unit.cEmail}}" name="cEmail" size="50" placeholder="xxx@xxx.xxx"/></td>
+            </tr>
+            <tr>
+                <th>電話：</th>
+                <td><input type="text" id="cPhone" value="{{unit.cPhone}}" name="cPhone" size="50" /></td>
+            </tr>
+            <tr>
+                <th>地址：</th>
+                <td><input type="text" id="cAddr" value="{{unit.cAddr}}" name="cAddr" size="50" /></td>
+            </tr>
+            <tr align="center">
+                <th colspan="2" align="center">
+                    <input type="submit" id="button" name="button" value="送出" />
+                    <input type="reset" id="button1" name="button1" value="重設" />
+            </tr>
+            <tr align="center">
+                <td colspan="2"><span style="color: red;"> {{ message }} </span></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

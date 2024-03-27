@@ -85,10 +85,35 @@ def post2(request):
         postform = PostForm()
     return render(request,"show/post2.html",locals())
 
-def delete(request):
+def delete(request, id=None,message=""):
     if request.method == "POST":
         id = request.POST["id"]
+    try:
         unit = student.objects.get(id=id)
         unit.delete()
+        message = "刪除該筆數據"
         return redirect("/students")
-    return render(request,"delete/delete.html",locals())
+    except:
+        message = "查無此編號"
+    return render(request,"edit/delete.html",locals())
+
+def edit(request, id=None, mode=None):
+    if mode == "load":
+        unit = student.objects.get(id=id)
+        strdate = str(unit.cBirthday)
+        strdate2 = strdate.replace("年", "-")
+        strdate2 = strdate.replace("月", "-")
+        strdate2 = strdate.replace("日", "-")
+        unit.cBirthday = strdate2
+        return render(request, "edit/edit.html", locals())
+    elif mode == "save":
+        unit = student.objects.get(id=id)
+        unit.cName = request.POST["cName"]
+        unit.cSex = request.POST["cSex"]
+        unit.cBirthday = request.POST["cBirthday"]
+        unit.cEmail = request.POST["cEmail"]
+        unit.cPhone = request.POST["cPhone"]
+        unit.cAddr = request.POST["cAddr"]
+        unit.save()
+        message = "已修改..."
+        return redirect("/students")

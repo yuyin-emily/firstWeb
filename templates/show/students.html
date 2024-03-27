@@ -26,6 +26,8 @@
             <td>{{ std.cEmail }}</td>
             <td>{{ std.cPhone }}</td>
             <td>{{ std.cAddr }}</td>
+            <td> <a href="/edit/{{std.id}}/load" title="修改">修改</a> </td>
+            <td> <a href="/delete/{{std.id}}" title="刪除">刪除</a> </td>
         </tr>
         {% endfor %}
     </table>
