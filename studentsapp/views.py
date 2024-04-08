@@ -85,7 +85,7 @@ def post2(request):
         postform = PostForm()
     return render(request,"show/post2.html",locals())
 
-def delete(request, id=None,message=""):
+def delete(request, id=None):
     if request.method == "POST":
         id = request.POST["id"]
     try:
@@ -94,7 +94,10 @@ def delete(request, id=None,message=""):
         message = "刪除該筆數據"
         return redirect("/students")
     except:
-        message = "查無此編號"
+        if id == None:
+            message = ""
+        else:
+            message = "查無此編號"
     return render(request,"edit/delete.html",locals())
 
 def edit(request, id=None, mode=None):
