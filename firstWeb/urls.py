@@ -19,6 +19,7 @@ from django.urls import path
 #將hello的view import
 import hello.views as hviews
 import studentsapp.views as sviews
+import flower.views as fviews
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -46,4 +47,11 @@ urlpatterns = [
     path("delete/<int:id>/", sviews.delete),
     path("edit/", sviews.edit),
     path("edit/<int:id>/<str:mode>", sviews.edit),
+    
+    
+    path('flower/', fviews.flowers),
+    path('flower/create/', fviews.create, name='create'),
+    path('flower/<slug:slug>/', fviews.detail, name='detail'),
+    path('tags/<slug:slug>/', fviews.tags, name='tags'),
+    path('flower/edit/<int:pk>', fviews.edit, name='edit'),
 ]

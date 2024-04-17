@@ -1,0 +1,21 @@
+<!--繼承基礎模板-->
+{%extends "../base/base.html" %}
+
+<!--顯示標題區塊-->
+{% block title %}
+<title>顯示花朵資料</title>
+{% endblock %}
+
+<!--顯示內容區塊-->
+{% block content %}
+<br />
+<br />
+<br />
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">{{ flower.title }}</h1>
+    <div class="lead">{{ flower.description }}</div>
+  </div>
+</div>
+<a href="/flower">Back</a>
+{% endblock %}

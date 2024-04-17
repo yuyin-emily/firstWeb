@@ -25,7 +25,6 @@ def dice(request):
     return render(request,"dice/dice.html",{"no":no})
 
 def tripledice(request):
-    
     no1 = random.randint(1,6)
     no2 = random.randint(1,6)
     no3 = random.randint(1,6)
