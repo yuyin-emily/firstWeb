@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,HttpResponseRedirect
 
-from django.http import HttpResponseRedirect
 from flower.models import Flower
 from .forms import FlowerForm
 
@@ -35,21 +34,27 @@ def tags(request, slug=None):
 
 def create(request):
     if request.method == "POST":
-        if form.valid():
+        form = (request.POST, request.FILES)
+        if form.is_valid():
             form.save()
             return HttpResponseRedirect("/flower/")
-        else:
-            form = FlowerForm()
-        return render(request, "flower/edit.html", locals())
+    else:
+        form = FlowerForm()
+    return render(request, "flower/edit.html", locals())
 
 def edit(request, pk=None):
     flower = get_object_or_404(Flower, pk=pk)
     if request.method == "POST":
         form = FlowerForm(request.POST, instance=flower)
-        if form.valid():
+        if form.is_valid():
             form.save()
             return HttpResponseRedirect("flower/")
-        else:
-            form = FlowerForm(instance=flower)
-        return render(request, "flower/edit.html", locals())
+    else:
+        form = FlowerForm(instance=flower)
+    return render(request, "flower/edit.html", locals())
+    
+def delete(request, pk=None):
+    flower = get_object_or_404(Flower, pk=pk)
+    flower.delete()
+    return render(request, "flower/", locals())
 

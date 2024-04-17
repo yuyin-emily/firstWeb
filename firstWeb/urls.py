@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 #將hello的view import
 import hello.views as hviews
@@ -54,4 +56,4 @@ urlpatterns = [
     path('flower/<slug:slug>/', fviews.detail, name='detail'),
     path('tags/<slug:slug>/', fviews.tags, name='tags'),
     path('flower/edit/<int:pk>', fviews.edit, name='edit'),
-]
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

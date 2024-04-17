@@ -16,7 +16,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><a href="{% url 'detail' flower.slug%}">{{ flower.title }}</a></h5>
-        
+      <img class="card-img-top" src="{{ flower.image.url }} "  alt="Card image cap">
       <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
       <a href="#" class="card-link">{{ flower.category }}</a>
       <a href="{% url 'edit' pk=flower.pk %}" class="card-link">Edit</a>
